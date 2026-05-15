@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="app-title">Expense Tracker</h1>
+    <p class="subtitle">Track where your money goes</p>
+
+    <!-- SUMMARY -->
+    <div class="summary-grid">
+      <div class="summary-card balance">
+        <label>Balance</label>
+        <span id="balance">₹0.00</span>
+      </div>
+      <div class="summary-card income">
+        <label>Income</label>
+        <span id="totalIncome">₹0.00</span>
+      </div>
+      <div class="summary-card expense">
+        <label>Expenses</label>
+        <span id="totalExpense">₹0.00</span>
+      </div>
+    </div>
+
+    <!-- ADD TRANSACTION -->
+    <div class="form-card">
+      <h3>Add Transaction</h3>
+
+      <div class="type-toggle">
+        <button class="type-btn active" id="btn-expense" onclick="selectType('expense', this)">− Expense</button>
+        <button class="type-btn" id="btn-income" onclick="selectType('income', this)">+ Income</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" id="desc" placeholder="e.g. Lunch, Books..."/>
+        </div>
+        <div class="form-group">
+          <label>Amount (₹)</label>
+          <input type="number" id="amount" placeholder="0.00" min="0"/>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="category">
+            <option value="food">🍔 Food</option>
+            <option value="transport">🚗 Transport</option>
+            <option value="shopping">🛍️ Shopping</option>
+            <option value="education">📚 Education</option>
+            <option value="health">💊 Health</option>
+            <option value="entertainment">🎮 Entertainment</option>
+            <option value="salary">💰 Salary</option>
+            <option value="other">📦 Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="date"/>
+        </div>
+      </div>
+
+      <button class="btn-add" onclick="addTransaction()">+ Add Transaction</button>
+    </div>
+
+    <!-- CATEGORY BREAKDOWN -->
+    <div class="breakdown-card">
+      <h3>Spending by Category</h3>
+      <div id="categoryBreakdown" class="category-list"></div>
+    </div>
+
+    <!-- TRANSACTIONS LIST -->
+    <div class="transactions-card">
+      <div class="trans-header">
+        <h3>Transactions</h3>
+        <button onclick="clearAll()">Clear All</button>
+      </div>
+      <ul id="transactionList" class="trans-list"></ul>
+    </div>
+
+  </div>
+
+  <footer>Day 19 of 120 · Kishalaya Sarangi · NIT Rourkela</footer>
+  <script src="script.js"></script>
+</body>
+</html>
